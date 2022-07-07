@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="DemoEticaret.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <style>
+        .stock{
+            background-color:green;
+            border-radius: 0% 50% 50% 0%/ 0% 50% 50% 0%;
+
+            position: relative;
+            bottom:20px;
+            left:1px;
+            text-align:left;
+            color:white;
+            float:left;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color:#242424">
+    <form id="form1" runat="server">
+        <div>
+            <table style="width:1100px; margin:0 auto"> <!--- Master Page Tablosu--->
+                <tr style="width:1100px; height:50px;border-color:#5f98f3;background-color:white">
+                    <td style="width:100px">
+                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl="~/Images/eticaret.png" Width="100px" /></td><!--- Logo--->
+                    <td style="width:780px" align="center"">
+                        <asp:Label ID="Label1" runat="server" Text="Sepet Market" Font-Bold="True" 
+                            Font-Names="Century" ForeColor="RoyalBlue" Font-Size="35px"></asp:Label>    <!--- Mağaza adı vs--->
+                        <br /><b>Alışverişi sevenler için</b>
+                    </td>
+                    <td style="width:220px; text-align:right">  <!--- Sosyal medya butonları--->
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="50px" style="text-align:left" postbackurl=""   ImageUrl="~/Images/facebook1.jpg" Width="50px" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" style="text-align:left" postbackurl=""   ImageUrl="~/Images/twitter1.jpg" Width="50px" />
+                        <asp:ImageButton ID="ImageButton3" runat="server" Height="50px" style="text-align:left" postbackurl=""   ImageUrl="~/Images/instagram1.jpg" Width="50px" />
+                        <asp:ImageButton ID="ImageButton4" runat="server" Height="50px" style="text-align:left" ImageUrl="~/Images/sepet1.jpg" Width="50px" CausesValidation="False" OnClick="ImageButton4_Click" />
+                        <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="#5F98F3"></asp:Label>
+                    </td>
+                </tr>
+                <tr style="width:100px;height:40px; background-color:#5f98f3">
+                    <td colspan="3">
+                        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticSubMenuIndent="19px"> 
+                            <Items>
+                                <asp:MenuItem Text="Ana Sayfa" Value="Home"></asp:MenuItem> 
+                                <asp:MenuItem Text="Bütün Ürünler" Value="All Product"></asp:MenuItem>
+                                <asp:MenuItem Text="Üyelik" Value="Registeration"></asp:MenuItem>
+                                <asp:MenuItem Text="Üye Girişi" Value="User Login"></asp:MenuItem>
+                                <asp:MenuItem Text="Hakkımızda" Value="About Us"></asp:MenuItem>
+                                <asp:MenuItem Text="İletişim" Value="Contact Us"></asp:MenuItem>
+                            </Items>
+                            <StaticHoverStyle BackColor="#FF6666" BorderColor="#FF6666" BorderStyle="Outset" ForeColor="White" Height="40px" />
+                            <StaticMenuItemStyle Font-Bold="True" Font-Size="Large" ForeColor="Black" HorizontalPadding="54px" />
+                            <StaticSelectedStyle BackColor="#FF5050" BorderColor="#FF6666" BorderStyle="Inset" ForeColor="#666666" Height="40px" />
+                        </asp:Menu>
+                    </td>
+                </tr>
+                <tr style="width:1110px; height:310px;">
+                    <td colspan="3">
+                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <contentTemplate>
+                                <asp:Timer ID="Timer1" runat="server"  OnTick="Timer1_Tick" Interval="2000"></asp:Timer> <!--- üstteki reklam--->
+                                <asp:Image ID="Image2" runat="server" BackColor="White" BorderColor="Gray" BorderStyle="Double" Height="270px" Width="1140px"  />
+                            </contentTemplate>
+                            </asp:UpdatePanel>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr style="width:1100px;height:25px; background-color:black; text-align:center; color:white">
+                    <td colspan="3">
+                        &copy; Online E-Ticaret | All Rights Reserved
+                    </td>
+                </tr>
+            </table>
+
+            
+        </div>
+    </form>
+</body>
+</html>
